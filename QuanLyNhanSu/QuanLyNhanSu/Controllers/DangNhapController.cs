@@ -31,18 +31,18 @@ namespace QuanLyNhanSu.Controllers
          *       Action ThucHienLogin sẽ được gọi
         * POST: ThucHienLogin
         * HttpPost: web-client gửi POST request tới back-end
-         * Tham số: NhanVien obj
+         * Tham số: NguoiDung obj
          * POST request sẽ đóng gói dữ liệu thành đối tượng của NhanVien
-         * từ form Login rồi pass vào hàm ThucHienLogin(NhanVien obj)
-         * vì vậy thuộc tính của Model NhanVien phải trùng tên biến 'name' của form Login
+         * từ form Login rồi pass vào hàm ThucHienLogin(NguoiDung obj)
+         * vì vậy thuộc tính của Model NguoiDung phải trùng tên biến 'name' của form Login
         */
         [HttpPost]
-        public ActionResult ThucHienLogin(NhanVien obj)
+        public ActionResult ThucHienLogin(NguoiDung obj)
         {
 
-            if (String.Equals(obj.MaNV, "abc"))
+            if (String.Equals(obj.MaND, "abc"))
             {
-                return Content("<h1>" + obj.MaNV + "</h1>"
+                return Content("<h1>" + obj.MaND + "</h1>"
                      + "</br>" + "<h1>" + obj.MatKhau + "</h1>");
             }
             else

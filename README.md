@@ -43,6 +43,6 @@ Hien tai minh chi lam trang logi nhung chua co ket noi co so du lieu.
 Minh lam web nay don gian thoi:
 Co tinh nang: them ,xoa, sua, tinh luong nhan vien.
 		      them ,xoa, sua, cho phong ban.va may thu khac nua khi xong co so du lieu thi tui moi biet ro.
-Ban muon lam gi cng duoc, chuc nang tuyen dung, minh nghi se tao them bang TuyetDung(TenNhanVien, email,sodienthoai,kynang)
+Ban muon lam gi cng duoc, chuc nang tuyen dung, minh nghi se tao them bang TuyenDung(TenNhanVien, email,sodienthoai,kynang)
 
 Co so du lieu minh van chua xong

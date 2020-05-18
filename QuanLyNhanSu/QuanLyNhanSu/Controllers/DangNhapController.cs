@@ -9,7 +9,7 @@ namespace QuanLyNhanSu.Controllers
 {
     public class DangNhapController : Controller
     {
-
+        QUANLYNHANSUEntities dbContext = new QUANLYNHANSUEntities();
         /*
          * Route: Controller: DangNhap
          *        Action: Login
@@ -37,13 +37,18 @@ namespace QuanLyNhanSu.Controllers
          * vì vậy thuộc tính của Model NguoiDung phải trùng tên biến 'name' của form Login
         */
         [HttpPost]
-        public ActionResult ThucHienLogin(NguoiDung obj)
+        public ActionResult ThucHienLogin(NGUOIDUNG obj)
         {
+            var kiemTraTK = dbContext.NGUOIDUNGs.Any(
+                NGUOIDUNG_X => NGUOIDUNG_X.MaNV == obj.MaNV && 
+                    NGUOIDUNG_X.MatKhau == obj.MatKhau
+                );
 
-            if (String.Equals(obj.MaND, "abc"))
+            if (kiemTraTK)
             {
-                return Content("<h1>" + obj.MaND + "</h1>"
-                     + "</br>" + "<h1>" + obj.MatKhau + "</h1>");
+                return Content("<h1>" + obj.MaNV + " and " + obj.MatKhau + "</h1>");
+                // route toi trang quan tri cua Admin
+                ///return Redirect();
             }
             else
             {

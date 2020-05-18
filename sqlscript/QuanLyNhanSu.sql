@@ -333,55 +333,58 @@ go
 
 /* SQL truy van nghiep vu quan ly nhan su */
 /*1.	Lập danh sách nhân viên có hợp đồng lao động từ ngày 2020/01/05 */
-
  SELECT NHANVIEN.HoTen
  FROM NHANVIEN, HOPDONGLAODONG
  WHERE NHANVIEN.MaHD = HOPDONGLAODONG.MaHD
 	and HOPDONGLAODONG.TuNgay > '2020/01/05';
- go
   
 /*2.Thông tin nhân viên có trình độ trên đại học*/
 SELECT nv.*
 FROM NHANVIEN nv, TRINHDOHOCVAN tdhv
-WHERE TTDHV Like “trên đại học”
+WHERE nv.MaTDHV = tdhv.MaTDHV
+ and (tdhv.LoaiTrinhDo Like '%Thac Si%' or tdhv.LoaiTrinhDo Like '%Tien Si%')
 
-3.	Cho biết chức vụ của nhân viên có mã nhân viên 1001
-Câu lệnh:
-		SELECT TenCV
-		FROM CHUCVU
-		WHERE MaNV = NV01
-4.	Cho biết bậc lương của các nhân viên có chức vụ là trưởng phòng
-Câu lệnh:
-		SELECT BacLuong
-		FROM LUONG
-		WHERE TenCV Like “trưởng phòng”
-5.	Cho biết chuyên ngành của các nhân viên có trình độ học vấn đại học
-Câu lệnh:
-		SELECT Cnganh
-		FROM TRINHDOHOCVAN
-		WHERE TTDHV Like “đại học”
-6.	Cho biết hệ số phụ cấp của nhân viên ở phòng ban có mã 100
-Câu lệnh:
-		SELECT HSPC
-		FROM LUONG
-		WHERE MaPB = 100
-7.	Liệt kê danh sách các nhân viên của phòng ban mã 101
-Câu lệnh:
-		SELECT MaNV, TenNV
-		FROM NHANVIEN
-		WHERE MaPB = 101
-8.	Cho biết lương cơ bản của nhân viên có trình độ học vấn đại học
-Câu lệnh:
-		SELECT LuongCB
-		FROM LUONG
-		WHERE TTDHV Like “đại học”
-9.	Lập danh sách nhân viên hết hạn hợp đồng ngày 20/12/2020
-Câu lệnh:
-		SELECT *
-		FROM NHANVIEN
-		WHERE DenNgay #20/12/2020#
-10.	Cho biết chức vụ của các nhân viên có trình độ học vấn trên đại học
-Câu lệnh:
-		SELECT TenCV
-		FROM CHUCVU
-		WHERE TTDHV Like “trên đại học”
+/*3.Cho biết chức vụ của nhân viên có mã nhân viên NV03 */
+SELECT cv.TenCV
+FROM CHUCVU cv, NHANVIEN nv
+WHERE nv.MaCV = cv.MaCV and nv.MaNV = 'NV03'
+
+/*4.Cho biết bậc lương của các nhân viên có chức vụ là trưởng phòng */
+SELECT l.BacLuong
+FROM LUONG l, NHANVIEN nv, CHUCVU cv
+WHERE nv.BacLuong = l.BacLuong and nv.MaCV = cv.MaCV
+and TenCV Like '%truong phong%'
+
+/*5.Cho biết chuyên ngành của các nhân viên có loại trình độ học vấn đại học*/
+SELECT tdhv.CNganh
+FROM TRINHDOHOCVAN tdhv, NHANVIEN nv
+WHERE nv.MaTDHV = tdhv.MaTDHV and tdhv.LoaiTrinhDo Like '%dai hoc%'
+
+/*6.Cho biết hệ số phụ cấp của nhân viên ở phòng ban có mã PB05*/
+SELECT l.HSPhuCap
+FROM LUONG l, NHANVIEN nv, PHONGBAN pb
+WHERE l.BacLuong = nv.BacLuong and nv.MaPB = pb.MaPB
+and pb.MaPB = 'PB05'
+
+/*7.Liệt kê danh sách các nhân viên của phòng ban mã PB02*/
+SELECT MaNV, HoTen
+FROM NHANVIEN 
+WHERE MaPB = 'PB02'
+
+/*8.Cho biết lương cơ bản của nhân viên có trình độ học vấn đại học*/
+SELECT l.LuongCB
+FROM LUONG l, TRINHDOHOCVAN tdhv, NHANVIEN nv
+WHERE nv.BacLuong = l.BacLuong and nv.MaTDHV = tdhv.MaTDHV
+and  tdhv.LoaiTrinhDo Like '%dai hoc'
+
+/*9.Lập danh sách nhân viên hết hạn hợp đồng ngày 31/12/2021*/
+SELECT nv.*
+FROM NHANVIEN nv, HOPDONGLAODONG hdld
+WHERE nv.MaHD = hdld.MaHD 
+and hdld.DenNgay = '2021/12/31'
+
+/*10.Cho biết tên chức vụ của các nhân viên có trình độ học vấn trên đại học*/
+SELECT cv.TenCV, nv.HoTen
+FROM CHUCVU cv, NHANVIEN nv, TRINHDOHOCVAN tdhv
+WHERE cv.MaCV = nv.MaCV and nv.MaTDHV = tdhv.MaTDHV
+and  tdhv.LoaiTrinhDo Like 'Thac Si' or tdhv.LoaiTrinhDo Like 'Tien Si'

@@ -22,7 +22,7 @@ namespace QuanLyNhanSu.Controllers
            /* Home Controller sẽ trả về trang Views/Home/Index.cshtml 
             *
             */
-            return View();
+            return View(); // render trang Index.cshtml
         }
 
         public ActionResult About()

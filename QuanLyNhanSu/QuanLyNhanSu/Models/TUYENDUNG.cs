@@ -12,11 +12,12 @@ namespace QuanLyNhanSu.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class NGUOIDUNG
+    public partial class TUYENDUNG
     {
-        public string MaNV { get; set; }
-        public string MatKhau { get; set; }
-    
-        public virtual NHANVIEN NHANVIEN { get; set; }
+        public string Email { get; set; }
+        public string HoTen { get; set; }
+        public string SDT { get; set; }
+        public string KyNang { get; set; }
+        public string GioiTinh { get; set; }
     }
 }

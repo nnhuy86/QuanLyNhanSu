@@ -43,6 +43,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -166,10 +168,50 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CHUCVU.cs">
+      <DependentUpon>QuanLyNhanSu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HOPDONGLAODONG.cs">
+      <DependentUpon>QuanLyNhanSu.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\LUONG.cs">
+      <DependentUpon>QuanLyNhanSu.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\NguoiDung.cs" />
-    <Compile Include="Models\NhanVien.cs" />
+    <Compile Include="Models\NGUOIDUNG.cs">
+      <DependentUpon>QuanLyNhanSu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NHANVIEN.cs">
+      <DependentUpon>QuanLyNhanSu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PHONGBAN.cs">
+      <DependentUpon>QuanLyNhanSu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QuanLyNhanSu.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyNhanSu.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QuanLyNhanSu.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyNhanSu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QuanLyNhanSu.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyNhanSu.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>QuanLyNhanSu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TRINHDOHOCVAN.cs">
+      <DependentUpon>QuanLyNhanSu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TUYENDUNG.cs">
+      <DependentUpon>QuanLyNhanSu.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -192,6 +234,23 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\QuanLyNhanSu.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>QuanLyNhanSu.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\QuanLyNhanSu.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QuanLyNhanSu.edmx</DependentUpon>
+      <LastGenOutput>QuanLyNhanSu.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\QuanLyNhanSu.edmx.diagram">
+      <DependentUpon>QuanLyNhanSu.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\QuanLyNhanSu.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QuanLyNhanSu.edmx</DependentUpon>
+      <LastGenOutput>QuanLyNhanSu.cs</LastGenOutput>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -249,6 +308,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

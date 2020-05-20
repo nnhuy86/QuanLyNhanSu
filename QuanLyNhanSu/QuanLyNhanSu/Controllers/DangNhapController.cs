@@ -46,9 +46,8 @@ namespace QuanLyNhanSu.Controllers
 
             if (kiemTraTK)
             {
-                return Content("<h1>" + obj.MaNV + " and " + obj.MatKhau + "</h1>");
                 // route toi trang quan tri cua Admin
-                ///return Redirect();
+                return Redirect("~/QuanLy/Index");
             }
             else
             {

@@ -1,0 +1,221 @@
+﻿
+@{
+    ViewBag.Title = "Ban Quan Tri";
+}
+
+
+@using QuanLyNhanSu.Models
+@{
+    QUANLYNHANSUEntities db = new QUANLYNHANSUEntities();
+}
+<!-- Navigation -->
+
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <!-- Page Heading -->
+        <div class="">
+            <div class="">
+                <h1 class="page-header">
+                    Tổng quan hệ thống quản lý
+                </h1>
+                <ol class="breadcrumb">
+                    <li>
+                        <i class="fa fa-dashboard"></i> Tổng quan
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <section>
+            <nav>
+                <div>
+                    <a  href="@Url.Action("index","QuanLyUser")">
+                        <div>
+                            <p>Tổng Quan</p>
+                        </div>
+                    </a>
+                </div>
+                <div>
+                    <a  href="@Url.Action("index","QuanLyUser")">
+                        <div>
+                            <p>Nhân Viên</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div>
+                    <a href="@Url.Action("index","QuanLyUser")">
+                        <div>
+                            <p>Phòng Ban</p>
+                        </div>
+                    </a>
+                </div>
+            </nav>
+
+            <article>
+                <div class="col-sm-6 col-md-4">
+                    <div class="counterboxwrapper">
+                        <!-- counter number -->
+                        <div align="center" class="counter" id="number-em">
+                            <div class="text-right">
+                                @{
+                                    var count = db.NHANVIENs.ToList().Count;
+                                }
+                                <div class="huge">@count</div>
+
+                                <div class="text-left">Tổng số nhân viên</div>
+                            </div>
+                        </div>
+                        <!-- counter more links -->
+                        <div class="more">
+                            <div class="morelinkspop">
+                                <a href="@Url.Action("index","QuanLyUser")">
+                                    <div class="panel-footer">
+                                        <span class="pull-left">Xem chi tiết</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <div class="counterboxwrapper">
+                        <!-- counter number -->
+                        <div align="center" class="counter" id="number-em">
+                            <div class="text-right">
+                                @{
+                                    var countPB = db.PHONGBANs.ToList().Count;
+                                }
+                                <div class="huge">@countPB</div>
+
+                                <div class="text-left">Tổng số phòng ban</div>
+                            </div>
+                        </div>
+                        <!-- counter more links -->
+                        <div class="more">
+                            <div class="morelinkspop">
+                                <a href="@Url.Action("index","QuanLyUser")">
+                                    <div class="panel-footer">
+                                        <span class="pull-left">Xem chi tiết</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                    <div class="counterboxwrapper">
+                        <!-- counter number -->
+                        <div align="center" class="counter" id="number-em">
+                            <div class="text-right">
+                                @{
+                                    var countCV = db.CHUCVUs.ToList().Count;
+                                }
+                                <div class="huge">@countCV</div>
+
+                                <div class="text-left">Tổng số chức vụ</div>
+                            </div>
+                        </div>
+                        <!-- counter more links -->
+                        <div class="more">
+                            <div class="morelinkspop">
+                                <a href="@Url.Action("index","QuanLyUser")">
+                                    <div class="panel-footer">
+                                        <span class="pull-left">Xem chi tiết</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--xuống dòng -->
+                <div class="clearfix visible-md visible-lg visible-xl"></div>
+
+                <div class="col-sm-6 col-md-4">
+                    <div class="counterboxwrapper">
+                        <!-- counter number -->
+                        <div align="center" class="counter" id="number-em">
+                            <div class="text-right">
+                                @{
+                                    var countHDLD = db.HOPDONGLAODONGs.ToList().Count;
+                                }
+                                <div class="huge">@countHDLD</div>
+
+                                <div class="text-left">Tổng số hợp đồng lao động</div>
+                            </div>
+                        </div>
+                        <!-- counter more links -->
+                        <div class="more">
+                            <div class="morelinkspop">
+                                <a href="@Url.Action("index","QuanLyUser")">
+                                    <div class="panel-footer">
+                                        <span class="pull-left">Xem chi tiết</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                    <div class="counterboxwrapper">
+                        <!-- counter number -->
+                        <div align="center" class="counter" id="number-em">
+                            <div class="text-right">
+                                @{
+                                    var countTDHV = db.TRINHDOHOCVANs.ToList().Count;
+                                }
+                                <div class="huge">@countTDHV</div>
+
+                                <div class="text-left">Tổng số loại học vấn</div>
+                            </div>
+                        </div>
+                        <!-- counter more links -->
+                        <div class="more">
+                            <div class="morelinkspop">
+                                <a href="@Url.Action("index","QuanLyUser")">
+                                    <div class="panel-footer">
+                                        <span class="pull-left">Xem chi tiết</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                    <div class="counterboxwrapper">
+                        <!-- counter number -->
+                        <div align="center" class="counter" id="number-em">
+                            <div class="text-right">
+                                @{
+                                    var countTD = db.TUYENDUNGs.ToList().Count;
+                                }
+                                <div class="huge">@countTD</div>
+
+                                <div class="text-left">Tổng số ứng cử viên</div>
+                            </div>
+                        </div>
+                        <!-- counter more links -->
+                        <div class="more">
+                            <div class="morelinkspop">
+                                <a href="@Url.Action("index","QuanLyUser")">
+                                    <div class="panel-footer">
+                                        <span class="pull-left">Xem chi tiết</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</div>
+<!-- /#page-wrapper -->
+
+
